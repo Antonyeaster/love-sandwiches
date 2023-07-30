@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 
 SCOPE = [
@@ -28,7 +27,7 @@ def get_sales_data():
         print("Data should be six numbers, separated by a commas.")
         print("Example: 10,15,2,6,9,4\n")
 
-        data_str = input("Enter your data here: ")
+        data_str = input("Enter your data here:\n")
         sales_data = data_str.split(",")
         validate_data(sales_data)
 
@@ -98,6 +97,7 @@ def get_last_5_entries_sales():
         column = sales.col_values(ind)
         columns.append(column[-5:])  
     return columns
+
 
 def calculate_stock_data(data):
     """
